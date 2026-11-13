@@ -1,0 +1,23 @@
+:root{--p:#f59e0b;--bg:#f6f5f2;--c:#fff;--t:#1f2937;--m:#6b7280;--b:#e5e7eb;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#111315;--c:#1c1f22;--t:#f3f4f6;--m:#9ca3af;--b:#2c3136}}
+*{box-sizing:border-box}body{margin:0;font:16px system-ui,sans-serif;background:var(--bg);color:var(--t)}
+button{font:inherit;border:0;border-radius:10px;padding:10px 14px;background:var(--p);color:#222;cursor:pointer;font-weight:600}
+button.ghost{background:var(--b);color:var(--t)}button:disabled{opacity:.4}
+input,select{width:100%;padding:10px;border:1px solid var(--b);border-radius:8px;background:var(--bg);color:var(--t);font:inherit;margin-top:4px}
+label{display:block;margin:10px 0;color:var(--m);font-size:14px}
+.center{min-height:100vh;display:grid;place-content:center;text-align:center;gap:14px;padding:20px}
+.logo{font-size:64px}.shell{display:flex;min-height:100vh}
+aside{width:230px;background:var(--c);border-right:1px solid var(--b);padding:12px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;transition:.2s;z-index:5}
+aside.mini{width:70px}aside.mini .lb{display:none}
+aside button{display:flex;gap:12px;align-items:center;background:none;color:var(--t);width:100%}
+aside button.on{background:var(--p);color:#222}
+main{flex:1;min-width:0;padding:16px}.top{display:flex;gap:12px;align-items:center;margin-bottom:16px}.top h2{margin:0;font-size:20px}
+.card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sp{justify-content:space-between}
+.m{color:var(--m);font-size:14px}.pres{flex:1;min-height:52px}
+dialog{border:1px solid var(--b);border-radius:14px;background:var(--c);color:var(--t);width:min(92vw,380px);max-height:85vh}
+dialog::backdrop{background:#0006}dialog .row{flex-direction:row-reverse;margin-top:10px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:10px;z-index:99}
+.ov{display:none}
+@media(max-width:800px){aside,aside.mini{position:fixed;left:0;transform:translateX(-100%);width:230px}aside.open{transform:none}aside.mini .lb{display:inline}.ov.on{display:block;position:fixed;inset:0;background:#0005;z-index:4}}
