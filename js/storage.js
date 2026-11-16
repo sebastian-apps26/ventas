@@ -4,6 +4,7 @@ const DB={k:'ventas_db',d:null,
   this.d=this.d||{cfg:{name:'Mi Empresa',logo:'🥚',pAdmin:'1234',pAdv:'1234'},stores:[],maples:[{id:'m1',name:'Maple',qty:30}],products:[],prices:{},stock:{},sales:[],clients:[],pays:[],waste:[]}},
  save(){localStorage.setItem(this.k,JSON.stringify(this.d))},
  uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,5)}};
+DB.load();
 ['clients','pays','waste'].forEach(k=>DB.d[k]??=[]);
 DB.d.cfg.img??=null;
 const Dev={get:()=>localStorage.getItem('ventas_store'),set:v=>v?localStorage.setItem('ventas_store',v):localStorage.removeItem('ventas_store')};
