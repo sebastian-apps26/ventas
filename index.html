@@ -1,2 +1,8 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sistema de Ventas</title><link rel="stylesheet" href="css/styles.css"></head><body><div id="app"></div>
-<script src="js/storage.js"></script><script src="js/ui.js"></script><script src="js/products.js"></script><script src="js/sales.js"></script><script src="js/history.js"></script><script src="js/debts.js"></script><script src="js/data.js"></script><script src="js/settings.js"></script><script src="js/stores.js"></script><script src="js/app.js"></script></body></html>
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sistema de Ventas</title></head><body><div id="app"></div>
+<script>
+// Cargador anti-caché: siempre pide version.json fresco y carga todos los archivos con esa versión.
+(async()=>{let v=Date.now();try{v=(await(await fetch('version.json?t='+Date.now(),{cache:'no-store'})).json()).v}catch(e){}
+const l=document.createElement('link');l.rel='stylesheet';l.href='css/styles.css?v='+v;document.head.append(l);
+for(const f of['storage','ui','products','sales','history','debts','data','settings','stores','app'])await new Promise(r=>{const s=document.createElement('script');s.src='js/'+f+'.js?v='+v;s.onload=s.onerror=r;document.body.append(s)});
+const a=document.querySelector('#app');if(!a.innerHTML.trim())a.innerHTML='<div style="font:16px sans-serif;padding:30px;text-align:center"><p>No se pudo cargar el sistema.</p><button onclick="location.reload()" style="padding:12px 18px;font-size:16px">Reintentar</button></div>'})();
+</script></body></html>
