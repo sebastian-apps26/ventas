@@ -21,3 +21,8 @@ dialog::backdrop{background:#0006}dialog .row{flex-direction:row-reverse;margin-
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:10px;z-index:99}
 .ov{display:none}
 @media(max-width:800px){aside,aside.mini{position:fixed;left:0;transform:translateX(-100%);width:230px}aside.open{transform:none}aside.mini .lb{display:inline}.ov.on{display:block;position:fixed;inset:0;background:#0005;z-index:4}}
+.pos{display:grid;grid-template-columns:1fr 350px;gap:16px;align-items:start}.cart{position:sticky;top:16px;margin:0}
+@media(max-width:1000px){.pos{grid-template-columns:1fr}.cart{position:static}}
+table{border-collapse:collapse;width:100%}td,th{padding:6px;border-bottom:1px solid var(--b);text-align:left}
+.cart .big{width:100%;margin-top:8px}.dash{background:none;border:1px dashed var(--m);color:var(--t)}.old{text-decoration:line-through;color:var(--m)}
+aside button{text-align:left}
