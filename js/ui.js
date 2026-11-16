@@ -10,5 +10,6 @@ const UI={
   d.innerHTML=`<form method="dialog"><h3>${title}</h3>${fields.map(f=>`<label>${f.l}${f.o?`<select name="${f.k}">${f.o.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select>`:`<input name="${f.k}" type="${f.t||'text'}" value="${f.v??''}" ${f.t=='number'?'step="any" min="0"':f.t=='file'?'accept="image/*"':''}>`}</label>`).join('')}<div class="row"><button value="ok">Aceptar</button><button value="x" class="ghost">Cancelar</button></div></form>`;
   document.body.append(d);d.showModal();
   d.onclose=()=>{if(d.returnValue=='ok'){const o={};new FormData($('form',d)).forEach((v,k)=>o[k]=v);ok(o)}d.remove()}},
+ view(h){const d=document.createElement('dialog');d.innerHTML=h+'<div class="row"><button onclick="this.closest(\'dialog\').close()">Cerrar</button></div>';document.body.append(d);d.showModal();d.onclose=()=>d.remove()},
  pass(exp,ok){UI.form('Contraseña',[{k:'p',l:'Ingresa la contraseña',t:'password'}],o=>o.p===exp?ok():UI.toast('Contraseña incorrecta'))}
 };
